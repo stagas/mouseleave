@@ -1,6 +1,6 @@
 {
   "name": "mouseleave",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "mouseleave shim utility",
   "keywords": ["mouse", "mouseleave", "events"],
   "author": "stagas",
