@@ -4,6 +4,7 @@
  */
 
 var within = require('within')
+var events = require('event')
 
 module.exports = mouseleave
 
@@ -18,7 +19,7 @@ function mouseleave (el, fn) {
   }
   listeners.push(listener)
   fns.push(fn)
-  el.addEventListener('mouseout', listener)
+  events.bind(el, 'mouseout', listener)
 }
 
 mouseleave.bind = mouseleave
@@ -27,5 +28,5 @@ mouseleave.unbind = function (el, fn) {
   var idx = fns.indexOf(fn)
   if (!~idx) return
   fns.splice(idx, 1)
-  el.removeEventListener('mouseout', listeners.splice(idx, 1)[0])
+  events.unbind(el, 'mouseout', listeners.splice(idx, 1)[0])
 }
